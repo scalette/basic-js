@@ -22,10 +22,10 @@ const { NotImplementedError } = require('../extensions/index.js');
 const alp = ['a', 'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 class VigenereCipheringMachine {
   constructor(bool= true){
+    this.bool = bool
   }
   generateKey(str,key)
 {
-     
      key=key.split("");
     if(str.length == key.length)
         return key.join("");
@@ -44,6 +44,7 @@ class VigenereCipheringMachine {
     if(!arguments[0] || !arguments[1]){
       throw new Error('Incorrect arguments!')
     }
+    str = this.bool ? str: str.split('').reverse().join('')
     //const key = this.generateKey(str, key_)
     let cipher="";
     let keyL = 0
@@ -69,6 +70,7 @@ class VigenereCipheringMachine {
     if(!arguments[0] || !arguments[1]){
       throw new Error('Incorrect arguments!')
     }
+    str = this.bool ? str: str.split('').reverse().join('')
     // const key = this.generateKey(str, key_)
     // let orig="";
   
